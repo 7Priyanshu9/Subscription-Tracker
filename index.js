@@ -22,7 +22,7 @@ app.use('/api/auth',authRouter);
 app.use('/api/users',userRouter);
 app.use('/api/subscriptions',subscriptionRouter);
 
-app.use(errorMiddleware)
+app.use(errorMiddleware);
 
 app.get('/',(req,res)=>{
     res.send('Welcome to subscription system')

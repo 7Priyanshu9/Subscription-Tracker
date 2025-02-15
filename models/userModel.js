@@ -22,13 +22,13 @@ const userSchema = new mongoose.Schema({
         required:[true,"Password is reqired"],
         unique:true,
         minLength:8,
-        maxLength:20,
+        maxLength:100,
     }
 
 
 
 },{timestamps:true});
 
-const User = Mongoose.model('User',userSchema);
+const User = mongoose.model('User',userSchema);
 
 export default User;
