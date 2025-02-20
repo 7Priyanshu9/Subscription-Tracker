@@ -15,7 +15,7 @@ userRouter.get('/',getAllUsers);
 
 // so here authorize is a middleware which will restrict the user to get all other users details
 
-userRouter.get('/:id',authorize,getUser);
+userRouter.get('/:id',getUser);
 
 userRouter.post('/',(req,res)=>{
     res.send({
