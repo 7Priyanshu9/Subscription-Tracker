@@ -6,7 +6,7 @@ import subscriptionRouter from './routes/subscription.routes.js';
 import connectDB from './DB/db.js';
 import errorMiddleware from './middleware/error.middleware.js';
 import cookieParser from 'cookie-parser';
-import arcJrtMiddleware from './middleware/arcjet.middleware.js';
+import arcjrtMiddleware from './middleware/arcjet.middleware.js';
 
 
 
@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use('/api/auth',authRouter);
 app.use('/api/users',userRouter);
 app.use('/api/subscriptions',subscriptionRouter);
-app.use(arcJrtMiddleware);
+app.use(arcjrtMiddleware);
 app.use(errorMiddleware);
 
 app.get('/',(req,res)=>{
