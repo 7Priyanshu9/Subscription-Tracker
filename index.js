@@ -7,7 +7,7 @@ import connectDB from './DB/db.js';
 import errorMiddleware from './middleware/error.middleware.js';
 import cookieParser from 'cookie-parser';
 import arcjrtMiddleware from './middleware/arcjet.middleware.js';
-
+import workflowRouter from './routes/workflow.routes.js';
 
 
 const app = express();
@@ -22,7 +22,8 @@ app.use(cookieParser());
 app.use('/api/auth',authRouter);
 app.use('/api/users',userRouter);
 app.use('/api/subscriptions',subscriptionRouter);
-app.use(arcjrtMiddleware);
+app.use('/api/workflow',workflowRouter);
+// app.use(arcjrtMiddleware);
 app.use(errorMiddleware);
 
 app.get('/',(req,res)=>{

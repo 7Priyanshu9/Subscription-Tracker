@@ -1,4 +1,8 @@
 import {Router} from 'express';
+import { createSubs } from '../controller/subscription.control.js';
+import authorize from '../middleware/auth.middleware.js';
+import { getUserSubs } from '../controller/subscription.control.js';
+import { getSubById } from '../controller/subscription.control.js';
 
 const subscriptionRouter = Router();
 
@@ -8,18 +12,10 @@ subscriptionRouter.get('/',(req,res)=>{
     })
 })
 
-subscriptionRouter.get('/:id',(req,res)=>{
-    res.send({
-        message: 'GET Subscriptions by ID',
-    })
-})
+subscriptionRouter.get('/:id',authorize,getSubById);
 
 
-subscriptionRouter.post('/',(req,res)=>{
-    res.send({
-        message: 'CREATE Subscriptions',
-    })
-})
+subscriptionRouter.post('/',authorize,createSubs);
 
 
 subscriptionRouter.put('/:id',(req,res)=>{
@@ -36,11 +32,7 @@ subscriptionRouter.delete('/:id',(req,res)=>{
 })
 
 
-subscriptionRouter.get('/user/:id',(req,res)=>{
-    res.send({
-        message: 'GET all user Subscriptions',
-    })
-})
+subscriptionRouter.get('/user/:id',authorize,getUserSubs);
 
 
 subscriptionRouter.put('/:id/cancel',(req,res)=>{
